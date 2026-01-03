@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos Tactics | Hivatalos Dokumentáció</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0e14;
+            --card-bg: #161b22;
+            --accent-blue: #58a6ff;
+            --accent-gold: #d4af37;
+            --text-main: #c9d1d9;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .navbar {
+            background-color: rgba(22, 27, 34, 0.95);
+            border-bottom: 1px solid #30363d;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-section {
+            padding: 150px 0 100px;
+            background: linear-gradient(rgba(11, 14, 20, 0.7), rgba(11, 14, 20, 0.9)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .section-padding { padding: 80px 0; }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            color: var(--text-main);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        .nav-link { font-family: 'Philosopher', sans-serif; font-size: 1.1rem; }
+        
+        .table-dark { --bs-table-bg: #161b22; border-color: #30363d; }
+
+        .faj-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .ember { background: #1a3a5a; color: #8ecbff; }
+        .torpe { background: #4a2e1d; color: #ffab7d; }
+        .elf { background: #1b4332; color: #95d5b2; }
+        .gnom { background: #5a3a1a; color: #ffcc80; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Chronos Tactics</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#koncept">Koncepció</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vilag">Világ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fajok">Fajok</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bazis">Bázisépítés</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#harc">Harc</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-2 mb-3">Az Idő a Legfőbb Fegyver</h1>
+            <p class="lead fs-3 mb-4" style="font-family: 'Philosopher';">Stratégiai RPG, ahol minden óra számít.</p>
+            <a href="#koncept" class="btn btn-outline-warning btn-lg px-5">Fedezd fel a Rendszert</a>
+        </div>
+    </header>
+
+    <section id="koncept" class="section-padding container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="mb-4">Alapvető Koncepció</h2>
+                <p>A <strong>Chronos Tactics</strong> egy egyedülálló, óránkénti tick-alapú rendszerre épülő stratégiai játék. Itt az egységek mozgása, az építkezés és a csaták kimenetele nem azonnali, hanem a valós időben telő órák függvénye.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2">✔️ <strong>Tick-Rendszer:</strong> 1 óra = 1 játékbeli kör (Tick).</li>
+                    <li class="mb-2">✔️ <strong>Akciópontok (AP):</strong> Limitált erőforrás a mozgáshoz és harchoz.</li>
+                    <li class="mb-2">✔️ <strong>Gambit Logika:</strong> Automatizált, de mélyen testreszabható csaták.</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card p-4 shadow">
+                    <h3>Hierarchia (Tier)</h3>
+                    <table class="table table-dark mt-3">
+                        <thead><tr><th>Szint</th><th>Megnevezés</th></tr></thead>
+                        <tbody>
+                            <tr><td>Tier 1</td><td>Alapkaszt (Harcos, Pap, Tolvaj)</td></tr>
+                            <tr><td>Tier 2</td><td>Specializáció (Lovag, Druida, Bérgyilkos)</td></tr>
+                            <tr><td>Tier 3</td><td>Legendás/Hős (Imperátor, Archon, Avatár)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vilag" class="section-padding bg-black bg-opacity-25">
+        <div class="container">
+            <h2 class="text-center mb-5">A Világ és Stratégia</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="feature-icon">⬢</div>
+                        <h4>Hexa-háló</h4>
+                        <p>A mozgás alapja a hexagonális térkép. Minden mező felfedezése AP-ba kerül, a látótávolságot a "Köd" (Fog of War) korlátozza.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="feature-icon">🛡️</div>
+                        <h4>Horda Mód</h4>
+                        <p>A bázisok veszélyességi mutatója alapján NPC ostromok indulhatnak. Védekezz a falak mögött vagy csapj le rájuk nyílt mezőn!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="feature-icon">💰</div>
+                        <h4>Gazdaság</h4>
+                        <p>Az épületek nemcsak aranyba, hanem időbe is kerülnek. A Jutalompontok (JP) segítenek az idő felgyorsításában.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fajok" class="section-padding container">
+        <h2 class="text-center mb-5">Választható Fajok</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="faj-badge ember mb-3 d-inline-block">Ember</span>
+                        <h5>Birodalmi Ambíció</h5>
+                        <p class="small">Adaptív harcosok. 20%-kal gyorsabb egységképzés és alacsonyabb fenntartási költségek.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="faj-badge torpe mb-3 d-inline-block">Törpe</span>
+                        <h5>Kőbőr és Mohóság</h5>
+                        <p class="small">+20% HP és megnövelt teherbírás a Dungeonök kifosztásához. Lassabb mozgás nyílt terepen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="faj-badge elf mb-3 d-inline-block">Elf</span>
+                        <h5>Erdei Léptek</h5>
+                        <p class="small">Kiemelkedő mozgékonyság (+1 AP). Erdőkben rejtőzködve a seregeik láthatatlanok a térképen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <span class="faj-badge gnom mb-3 d-inline-block">Gnóm</span>
+                        <h5>Gőzgépek Urai</h5>
+                        <p class="small">Technológiai fölény. Automata bázisjavítás és pusztító mechanikus egységek.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bazis" class="section-padding bg-black bg-opacity-25">
+        <div class="container">
+            <h2 class="text-center mb-5">Kolonizáció és Bajnokok</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <p>Az új bázisok alapítása a <strong>Bajnoki Rendszeren</strong> alapul. Egy veterán Tier 2-es egység rituális ceremónia keretében Bajnokká válik, és elindul, hogy új települést alapítson.</p>
+                    <div class="p-4 border border-secondary rounded mt-4">
+                        <h5>Specializált Bázisok</h5>
+                        <p class="mb-0 small">Minden új bázis örökli az alapító bajnok képességeit: egy Lovagból lett bajnok Szentély-Erődöt épít, míg egy Tolvajból Árnyékkancellár vezette Kémközpont születik.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card p-4 mt-4 mt-lg-0">
+                        <h5>Slot 0 Épületek</h5>
+                        <p class="small">Minden bázis rendelkezik egy különleges hellyel, amely a Hős vagy Bajnok jelenléte alapján aktiválódik, globális vagy helyi bónuszokat adva.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="harc" class="section-padding container">
+        <h2 class="text-center mb-5">Harc és Formációk</h2>
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h3>A Sereg Alakzata</h3>
+                <p>A seregek 3 sorra oszlanak. A taktikai siker kulcsa az egységek helyes elosztása:</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-transparent text-main"><strong>Frontline:</strong> Tankok (Sebzés 70%-át nyelik el)</li>
+                    <li class="list-group-item bg-transparent text-main"><strong>Midline:</strong> Közelharci harcosok és támogatók</li>
+                    <li class="list-group-item bg-transparent text-main"><strong>Backline:</strong> Íjászok, Varázslók, Gyógyítók</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Vezérek Párbaja</h3>
+                <p>A csata egy 1v1-es összecsapással kezdődik a sereg vezérei között. Ennek kimenetele sokkolhatja az ellenséget vagy fellelkesítheti a saját csapatokat.</p>
+                <div class="alert alert-warning bg-transparent border-warning text-warning mt-3">
+                    <strong>Taktikai Tipp:</strong> Állíts be "Ha-Akkor" parancsokat (Gambit), hogy sereged automatikusan reagáljon a sérülésekre!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-black text-center text-muted">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Chronos Tactics Development Team. Minden jog fenntartva.</p>
+            <p class="small">Az idő nem áll meg.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
